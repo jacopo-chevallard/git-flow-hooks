@@ -96,7 +96,7 @@ gitflow_get_current_version() {
 #
 gitflow_update_authors() {
 	ROOTDIR=$(git rev-parse --show-toplevel)
-	AUTHORS=$(mktemp --suffix=.gitflow)
+	AUTHORS=$(mktemp -t gitflow)
 
 	# Create an up to date AUTHORS file
 	echo "git-flow AVH Authors

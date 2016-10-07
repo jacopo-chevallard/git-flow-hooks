@@ -20,8 +20,11 @@ BRANCH=$3
 . "$HOOKS_DIR"/gitflow-functions
 ROOTDIR=$(git rev-parse --show-toplevel)
 
+echo 11111111111111111111111111111111111111111
 gitflow_update_authors
+echo 22222222222222222222222222222222222222222
 gitflow_update_version $VERSION
+echo 33333333333333333333333333333333333333333
 
 # To terminate the git-flow action, return a non-zero exit code.
 exit 0

@@ -14,7 +14,7 @@ BRANCH=$3
 # Implement your script aere.
 . "$HOOKS_DIR"/gitflow-functions
 ROOTDIR=$(git rev-parse --show-toplevel)
-TMPFILE=$(mktemp --suffix=.gitflow)
+TMPFILE=$(mktemp -t gitflow)
 
 gitflow_set_major_minor $VERSION
 AVH_PRE_RELEASE="-rc.1"

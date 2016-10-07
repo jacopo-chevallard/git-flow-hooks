@@ -16,7 +16,7 @@ BRANCH=$3
 ROOTDIR=$(git rev-parse --show-toplevel)
 
 git checkout $DEVELOP_BRANCH
-TMPFILE=$(mktemp --suffix=.gitflow)
+TMPFILE=$(mktemp -t gitflow)
 
 gitflow_set_major_minor $VERSION
 AVH_MINOR=$(($AVH_MINOR+1))
@@ -25,6 +25,8 @@ gitflow_set_dev_release
 gitflow_build_version
 
 LINENUMBER=$(($(grep -m1 -n "^#### " $ROOTDIR/Changes.mdown | cut -f1 -d:) -1 ))
+echo $LINENUMBER
+echo ''$LINENUMBER'a#### '$AVH_VERSION' =\n* Preparation for new development cycle.\n' $ROOTDIR/Changes.mdown
 sed ''$LINENUMBER'a#### '$AVH_VERSION' =\n* Preparation for new development cycle.\n' $ROOTDIR/Changes.mdown > $TMPFILE
 cp $TMPFILE $ROOTDIR/Changes.mdown
 

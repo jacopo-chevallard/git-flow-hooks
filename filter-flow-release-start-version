@@ -17,9 +17,9 @@ current_branch=$(git rev-parse --abbrev-ref HEAD)
 
 if [ -z "$VERSION" ]; then
 	git checkout -q "$MASTER_BRANCH"
-	VERSION=$(grep -m1 "GITFLOW_VERSION=" $ROOTDIR/git-flow-version | cut -f2 -d"=")
-	gitflow_set_major_minor $VERSION
-	AVH_PATCH_LEVEL=$(($AVH_PATCH_LEVEL+1))
+	#VERSION=$(grep -m1 "GITFLOW_VERSION=" $ROOTDIR/git-flow-version | cut -f2 -d"=")
+	#gitflow_set_major_minor $VERSION
+	#AVH_PATCH_LEVEL=$(($AVH_PATCH_LEVEL+1))
 	git checkout -q $current_branch
 else
 	TAG=`git tag $VERSION* -l|grep -v -| tail -1`
